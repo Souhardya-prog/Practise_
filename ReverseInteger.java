@@ -13,11 +13,15 @@ public class ReverseInteger{
         }
         int digitCount = digitCount(n);
         int digit;
-        int newNum = 0;
+        long newNum = 0;
         for (int i = 0; i <digitCount ; i++) {
             digit = extractDigit(n);
             newNum = newNum *10 + digit;
             n/=10;
+        }
+        if(newNum > Integer.MAX_VALUE){
+            System.out.println(0);
+            System.exit(0);
         }
         if (copy<0) {
             System.out.println("Reversed number: "+ -newNum);
