@@ -1,3 +1,4 @@
+//This program is supposed to rearrange the digits in such a way that either the odd digits come first or the even digits.
 import java.util.Scanner;
 
 public class Rearrange_Digits{
@@ -25,7 +26,7 @@ public class Rearrange_Digits{
         showRearrangedNumber();
     }
     static int getDigitCount(int n){
-        return (int)Math.log10(n)+1 ;
+        return (n == 0) ? 1 : (int)Math.log10(n) + 1;
     }
     static int getDigits(int n){
         return n/(int)Math.pow(10, getDigitCount(n) - 1);
@@ -70,8 +71,83 @@ public class Rearrange_Digits{
                 System.out.println("Rearranged number with even digits placed first is out the integer range: ");
             }
             else{
-                System.out.println("Rearranged number with even digits placed first: "+Rearranged);
+                System.out.println("Rearranged number with odd digits placed first: "+Rearranged);
             }
         }
     }
 }
+//This code works well for non-zero containing numbers, but if the numbers contain zero it does not give correct result. Below is the code to tackle this issue using string From ChatGPT.
+
+/*
+
+import java.util.Scanner;
+
+public class Rearrange_Digits {
+    static String evenNum = "";
+    static String oddNum = "";
+    static boolean isNegative = false;
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter any number");
+        int n = scanner.nextInt();
+        if (n < 0) {
+            isNegative = true;
+            n = Math.abs(n);
+        }
+        int digitCount = getDigitCount(n);
+        for (int i = 0; i < digitCount; i++) {
+            int digit = getMostSignificantDigit(n);
+            if (digit % 2 == 0) {
+                formEvenNum(digit);
+            } else {
+                formOddNum(digit);
+            }
+            n = removeMostSignificantDigit(n);
+        }
+        showRearrangedNumber();
+    }
+
+    static int getDigitCount(int n) {
+        return (n == 0) ? 1 : (int)Math.log10(n) + 1;
+    }
+
+    static int getMostSignificantDigit(int n) {
+        return n / (int)Math.pow(10, getDigitCount(n) - 1);
+    }
+
+    static int removeMostSignificantDigit(int n) {
+        return n % (int)Math.pow(10, getDigitCount(n) - 1);
+    }
+
+    static void formEvenNum(int evenDigit) {
+        evenNum += evenDigit;
+    }
+
+    static void formOddNum(int oddDigit) {
+        oddNum += oddDigit;
+    }
+
+    static void showRearrangedNumber() {
+        try {
+            long rearranged;
+
+            if (isNegative) {
+                rearranged = Long.parseLong(evenNum + oddNum);
+                System.out.println("Rearranged number with even digits placed first: " + -rearranged);
+
+                rearranged = Long.parseLong(oddNum + evenNum);
+                System.out.println("Rearranged number with odd digits placed first: " + -rearranged);
+            } else {
+                rearranged = Long.parseLong(evenNum + oddNum);
+                System.out.println("Rearranged number with even digits placed first: " + rearranged);
+
+                rearranged = Long.parseLong(oddNum + evenNum);
+                System.out.println("Rearranged number with odd digits placed first: " + rearranged);
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Rearranged number is out of the integer range.");
+        }
+    }
+}
+*/
