@@ -1,6 +1,10 @@
+import java.util.Scanner;
+
 public class Rearrange_Digits {
     public static void main(String[] args) {
-        int n = 56123;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter positive number");
+        int n = scanner.nextInt();
         int ODC=0, EDC=0;
         int odd=0, even=0;
         int digitsCount = (int)Math.log10(n) +1;
