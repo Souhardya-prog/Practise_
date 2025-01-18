@@ -1,0 +1,13 @@
+1. WAP to accept a positive integer. Add the digits less than or equal to 5, multiply the digits greater than 5. Using
+the sum and the product reform the number and display it.
+
+2. WAP to accept a positive integer. display the middle digit or digits in the number. Also if more than one middle
+digit is present then also display the sum of the 2 digits.
+
+3. WAP to accept a positive integer with even number of digits. divide the number into two halves. then
+reverse the two halves. With the two new numbers reform the number. check if it is bigger or smaller than the previous
+number.
+
+4. WAP  to accept a positive integer of at least 4 digits. Form a number with the digits placed at odd positions and
+form another number with the digits in even positions. Form the number let it be n1. now if the two parts are A and B then check which is bigger A or B
+if A is bigger then rearrange the digits in A in ascending order. Now again form the number let it be n2. Check if n1 > < = n2.
