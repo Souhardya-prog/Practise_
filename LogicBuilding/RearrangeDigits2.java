@@ -1,3 +1,6 @@
+//This program is supposed to rearrange the digits of a number in such a way that odd and even digits come in
+// alternate sequential order.
+// E.g. - Input-248931. Output-
 import java.util.Scanner;
 
 public class RearrangeDigits2 {

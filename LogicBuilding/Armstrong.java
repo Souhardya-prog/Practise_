@@ -1,4 +1,6 @@
 //Wap a program to check if it is an armstrong number
+//1. Take input of the number from the user.
+//2.
 import java.util.Scanner;
 public class Armstrong
 {
@@ -8,22 +10,26 @@ public class Armstrong
         System.out.println("Enter the number");
         int n = sc.nextInt ();//IMP: Declaring 'n' as double would lead to logical error*
         int copy =n;
-        int c=1;
-        for (int i = 10; i<= n; i=i*10){
-            c++;
+        int sum =0;
+        for (int i = 0; i <getDigitCount(n) ; i++) {
+            sum+= (int) Math.pow(getDigits(copy), getDigitCount(n));
+            copy/=10;
         }
-        double a = 0;
-        double sum=0.0;
-        for (int i =1; i <=c;i++){
-            a= n%10;
-            sum = sum + Math.pow(a, c);
-            n=n/10;//* if 'n' is declared as double then, the next value of n after n/10 would have decimals.Therefore value of n would be more than desired value.
-        }
-        if(copy==sum){
-            System.out.println(+copy+" is an Armstrong number");
-        }
-        else
-            System.out.println(+copy+"is not an Armstrong number");
+        if(sum == n) System.out.println("Armstrong number");
+        else System.out.println("Not an armstrong number");
     }
+
+    public static int getDigitCount(int n){
+        int c = 0;
+        while(n>0){
+            c++;
+            n/=10;
+        }
+        return c;
+    }
+    public static int getDigits(int n){
+        return n%10;
+    }
+
 }    
 

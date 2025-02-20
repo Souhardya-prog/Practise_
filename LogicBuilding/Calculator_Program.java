@@ -1,25 +1,18 @@
 import java.util.*;
 public class Calculator_Program
 {
-    double sum = 0;
-    double product = 0.0;
-    double quotient = 0.0;
-    double minus = 0.0;
-    double Sum(double a, double b){
-        sum =  (a+b);
-        return (sum);
+    // We make separate methods to add, subtract, multiply and divide two numbers.
+    double sum(double a, double b){
+        return (a+b);
     }
-    double Product(double a, double b){
-        product = a*b;
-        return (product);
+    double product(double a, double b){
+        return (a*b);
     }
-    double Quotient(double a, double b){
-        quotient = a/b;
-        return (quotient);
+    double quotient(double a, double b){
+        return (a/b);
     }
-    double Minus(double a, double b){
-        minus = a-b;
-        return (minus);
+    double minus(double a, double b){
+        return (a-b);
     }
     public static void main(String args[])
     {
@@ -28,20 +21,20 @@ public class Calculator_Program
         System.out.println("Enter 2 numbers");
         double x = sc.nextDouble ();//1st number
         double y = sc.nextDouble ();//2nd number
-        sc.nextLine();
+        sc.nextLine();// VERY IMP. find out why?
         System.out.println("Enter: '+' for sum");
         System.out.println("       '-' for 1st no - 2nd no");                              
         System.out.println("       '*' for product");        
         System.out.println("       '/' for 1st no / 2nd no");
         char choice = sc.nextLine().charAt(0);
         switch (choice){
-            case '+': System.out.println("sum of "+x+ " and "+y+" is "+ob.Sum(x, y)); 
+            case '+': System.out.println("sum of "+x+ " and "+y+" is "+ob.sum(x, y));
             break;
-            case '-': System.out.println("minus of "+x+ " and "+y+" is "+ob.Minus(x, y));
+            case '-': System.out.println("difference of "+x+ " and "+y+" is "+ob.minus(x, y));
             break;
-            case '*': System.out.println("product of "+x+ " and "+y+" is "+ob.Product(x, y));
+            case '*': System.out.println("product of "+x+ " and "+y+" is "+ob.product(x, y));
             break;
-            case '/': System.out.println("quotient of "+x+ " and "+y+" is "+ob.Quotient(x, y)); 
+            case '/': System.out.println("quotient of "+x+ " and "+y+" is "+ob.quotient(x, y));
             break;
             default:System.out.println("INVALID");
         }

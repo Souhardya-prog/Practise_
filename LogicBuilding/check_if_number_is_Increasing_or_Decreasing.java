@@ -26,7 +26,9 @@ public class check_if_number_is_Increasing_or_Decreasing {
             }while(num<100);
             Descending(num);
             Ascending(num);
-            if(num == Increasing) System.out.println("Increasing number");
+            if(num == Increasing){
+                System.out.println("Increasing number");
+            }
             else if (num == Decreasing ) {
                 System.out.println("Decreasing number");
             }
@@ -52,16 +54,17 @@ public class check_if_number_is_Increasing_or_Decreasing {
         Decreasing = D;
     }
     static void Ascending(int n){
-        int D = 0;
-        for (int j = 0; j <= 9; j++) {
-            int k = n;
-            while(k>0){
-                if(k%10 == j){
-                    D = D * 10 + k%10;
+        int copy = n;
+        Increasing = 0;
+        for (int i = 0; i <=9 ; i++) {
+            while(copy>0){
+                if(copy%10 == i){
+                    Increasing = Increasing*10 + copy%10;
                 }
-                k/=10;
+                copy/=10;
             }
+            copy = n;
         }
-        Increasing = D;
+//        System.out.println(Increasing);
     }
 }
